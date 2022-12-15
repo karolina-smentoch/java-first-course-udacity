@@ -115,6 +115,7 @@ public class Main {
         double celcius = (fahrenheit - 32) * 5 / 9;
         System.out.println(celcius);
 
+        System.out.println();
         System.out.println("DRUGI MODUŁ");
         System.out.println("if Statement");
         boolean isCold = true;
@@ -263,7 +264,6 @@ public class Main {
         } else {
             System.out.println("Wander.");
         }
-        System.out.println();
         System.out.println("Question 4");
         boolean isSnowing = false;
         boolean isRaining = true;
@@ -275,7 +275,6 @@ public class Main {
         } else {
             System.out.println("Let's go out!");
         }
-        System.out.println();
         System.out.println("Question 5");
         //Assume this could have any value between 0 and 24:
         int time = 22;
@@ -285,11 +284,9 @@ public class Main {
             System.out.println("Morning");
         } else if (time >= 12 && time < 20) {
             System.out.println("Daytime");
-        }
-        else {
+        } else {
             System.out.println("Night");
         }
-        System.out.println();
         System.out.println("Question 6");
         //Assume these could have any value:
         int dayOfTheWeek = 1; // Wybierz liczbę pomiędzy 1-7, które odpowiadają dniom tygodnia
@@ -299,7 +296,6 @@ public class Main {
         } else {
             System.out.println("Sleep in!");
         }
-        System.out.println();
         System.out.println("Question 8");
         //Assume this can have any value from 1 to 7:
         int dayOfWeek = 7;
@@ -310,22 +306,144 @@ public class Main {
         //provide a default case!
         String schedule;
         switch (dayOfWeek) {
-            case 1 : schedule = "Gym in the morning.";
+            case 1:
+                schedule = "Gym in the morning.";
                 break;
-            case 2 : schedule = "Class after work.";
+            case 2:
+                schedule = "Class after work.";
                 break;
-            case 3 : schedule = "Meetings all day.";
+            case 3:
+                schedule = "Meetings all day.";
                 break;
-            case 4 : schedule = "Work from home.";
+            case 4:
+                schedule = "Work from home.";
                 break;
-            case 5 : schedule = "Game night afert work.";
+            case 5:
+                schedule = "Game night afert work.";
                 break;
-            case 6 : case 7 : schedule = "Free";
+            case 6:
+            case 7:
+                schedule = "Free";
                 break;
-            default: schedule = "Please correct the day";
+            default:
+                schedule = "Please correct the day";
         }
         System.out.println(schedule);
 
+        System.out.println();
+        System.out.println("TRZECI MODUŁ");
+        System.out.println("Karaoke Machine");
+        chorus();
 
+        System.out.println();
+        System.out.println("Play button");
+        playMusic();
+
+        System.out.println();
+        System.out.println("Greeting for a city");
+        greeting("Gdańsk");
+
+        System.out.println();
+        System.out.println("Greeting for a city");
+        weatherInterpreter(25);
+        int degreesC = 32;
+        weatherInterpreter(degreesC);
+
+        System.out.println();
+        System.out.println("Photograph");
+        printPhoto(200,300, true);
+
+        System.out.println();
+        System.out.println("Height requirements");
+        System.out.println(admission(110)); // bez souta mi się ten wynik nie pokaże, ale jest zwracany przez funkcję
+
+
+        System.out.println();
+        System.out.println("Change");
+        System.out.println("Your change is $" + makeChange(298,300));
+
+        System.out.println();
+        System.out.println("Rolling the dice");
+        int roll1 = rollDice(6);
+        int roll2 = rollDice(20);
+        System.out.println("Roll 1 " + roll1);
+        System.out.println("Roll 2 " + roll2);
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+    public static void chorus() {
+        // print out 4 lines of chorus
+        System.out.println("First line of chorus");
+        System.out.println("Second line of chorus");
+        System.out.println("Third line of chorus");
+        System.out.println("Forth line of chorus");
+    }
+    public static void playMusic() {
+        boolean playButton = true;
+        if (playButton) {
+            System.out.println("Music is plaing.");
+        } else {
+            System.out.println("Music is paused.");
+        }
+    }
+    public static void greeting(String location) {
+        System.out.println("Hello, " + location);
+    }
+
+    public static void weatherInterpreter(int temperature) {
+        if (temperature > 30) {
+            System.out.println("It's so hot!");
+        } else if (temperature < 5) {
+            System.out.println("It's so cold");
+        } else {
+            System.out.println("It's perfect weather outside!");
+        }
+    }
+    public static void printPhoto(int width, int height, boolean inColor) {
+        System.out.println("Weidth = " + width + "cm");
+        System.out.println("Heigth = " + height + "cm");
+        if (inColor) {
+            System.out.println("Print is full color.");
+        } else {
+            System.out.println("Print is black and white.");
+        }
+    }
+    public static String admission(double height) {
+        String passText;
+        if (height > 120) {
+            passText = "You pass the height requirements.";
+        } else {
+            passText = "Sorry, you don't pass.";
+        }
+        return passText;
+    }
+    public static double makeChange(double itemCost, double dollarPriovided) {
+        double makeChange = dollarPriovided - itemCost;  // określam zmienną makeChange typu double jako różnicę dwóch zmiennych double
+        return makeChange; //zwracam wynik funkcji w formie zmiennej makeChange typu, ale to jeszcze nie wyśiwetla jej wartości
+    }
+
+    public static int rollDice (int sides) { //jeżeli damy tutaj pusty nawiast to poniżej zamiast zmiennej sides należy dać liczbę ścianek kostki
+        /**
+         * This dice function simulates a random dice roll
+         * for a dice with a given numer of sides.
+         *
+         * @param sides the numer od sides of a dice
+         * @return random roll value (an int)
+         */
+        double randomNumber = Math.random();
+        randomNumber = randomNumber * sides; //uzależnia wartość na kostce od ilości ścianek
+        randomNumber = randomNumber + 1;
+        int randomInt = (int) randomNumber;
+        return randomInt;
     }
 }
