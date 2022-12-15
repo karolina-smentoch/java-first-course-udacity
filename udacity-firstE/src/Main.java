@@ -184,16 +184,21 @@ public class Main {
         int password = 6;
         String coffeeType;
         switch (password) {
-            case 1 : coffeeType="Espresso";
-            break;
-            case 2 : coffeeType="Americana";
-            break;
-            case 3 : coffeeType="Latte";
-            break;
-            case 4: coffeeType="Cappuccino";
-            break;
-            default: coffeeType="Wrong number. Choose the number from 1 to 4.";
-            break;
+            case 1:
+                coffeeType = "Espresso";
+                break;
+            case 2:
+                coffeeType = "Americana";
+                break;
+            case 3:
+                coffeeType = "Latte";
+                break;
+            case 4:
+                coffeeType = "Cappuccino";
+                break;
+            default:
+                coffeeType = "Wrong number. Choose the number from 1 to 4.";
+                break;
         }
         System.out.println(coffeeType);
 
@@ -201,35 +206,126 @@ public class Main {
         System.out.println("Months");
         int yourMonth = 6; //liczby pomiędzy 1-12
         String monthString;
-        switch(yourMonth) {
-            case 1: monthString = "January";
+        switch (yourMonth) {
+            case 1:
+                monthString = "January";
                 break;
-            case 2: monthString = "February";
+            case 2:
+                monthString = "February";
                 break;
-            case 3: monthString = "March";
+            case 3:
+                monthString = "March";
                 break;
-            case 4: monthString = "April";
+            case 4:
+                monthString = "April";
                 break;
-            case 5: monthString = "May";
+            case 5:
+                monthString = "May";
                 break;
-            case 6: monthString = "June";
+            case 6:
+                monthString = "June";
                 break;
-            case 7: monthString = "July";
+            case 7:
+                monthString = "July";
                 break;
-            case 8: monthString = "August";
+            case 8:
+                monthString = "August";
                 break;
-            case 9: monthString = "September";
+            case 9:
+                monthString = "September";
                 break;
-            case 10: monthString = "October";
+            case 10:
+                monthString = "October";
                 break;
-            case 11: monthString = "November";
+            case 11:
+                monthString = "November";
                 break;
-            case 12: monthString = "December";
+            case 12:
+                monthString = "December";
                 break;
-            default: monthString = "You have to choose between 1 and 12.";
+            default:
+                monthString = "You have to choose between 1 and 12.";
                 break;
         }
         System.out.println(monthString);
+
+        System.out.println();
+        System.out.println("ZADANIA DODATKOWE");
+        System.out.println("Question 3");
+        boolean playerPoweredUp = true;
+        boolean canSeePlayer = false;
+        if (canSeePlayer) {
+            if (playerPoweredUp) {
+                System.out.println("Run away!");
+            } else {
+                System.out.println("Attack!");
+            }
+        } else {
+            System.out.println("Wander.");
+        }
+        System.out.println();
+        System.out.println("Question 4");
+        boolean isSnowing = false;
+        boolean isRaining = true;
+        double temperature = 60.0;
+        //TODO: print "Let’s stay home." if its raining, snowing or
+        //below 50 degrees and print "Let’s go out!" otherwise.
+        if (isSnowing || isRaining || temperature < 50) {
+            System.out.println("Let's stay home");
+        } else {
+            System.out.println("Let's go out!");
+        }
+        System.out.println();
+        System.out.println("Question 5");
+        //Assume this could have any value between 0 and 24:
+        int time = 22;
+        String timeOfDay;
+        //TODO: set timeOfDay to the correct String value.
+        if (time >= 5 && time < 12) {
+            System.out.println("Morning");
+        } else if (time >= 12 && time < 20) {
+            System.out.println("Daytime");
+        }
+        else {
+            System.out.println("Night");
+        }
+        System.out.println();
+        System.out.println("Question 6");
+        //Assume these could have any value:
+        int dayOfTheWeek = 1; // Wybierz liczbę pomiędzy 1-7, które odpowiadają dniom tygodnia
+        boolean holiday = false;
+        if (dayOfTheWeek >= 1 && dayOfTheWeek <= 5 && !holiday) {
+            System.out.println("Wake up at 7:00");
+        } else {
+            System.out.println("Sleep in!");
+        }
+        System.out.println();
+        System.out.println("Question 8");
+        //Assume this can have any value from 1 to 7:
+        int dayOfWeek = 7;
+        //TODO: declare a String variable called schedule.
+        //TODO: write a switch statement that give schedule a different
+        //value for each day of the week based on the dayOfWeek variable.
+        //Don’t forget to "break" after each case, and don’t forget to
+        //provide a default case!
+        String schedule;
+        switch (dayOfWeek) {
+            case 1 : schedule = "Gym in the morning.";
+                break;
+            case 2 : schedule = "Class after work.";
+                break;
+            case 3 : schedule = "Meetings all day.";
+                break;
+            case 4 : schedule = "Work from home.";
+                break;
+            case 5 : schedule = "Game night afert work.";
+                break;
+            case 6 : case 7 : schedule = "Free";
+                break;
+            default: schedule = "Please correct the day";
+        }
+        System.out.println(schedule);
+
 
     }
 }
