@@ -351,7 +351,7 @@ public class Main {
 
         System.out.println();
         System.out.println("Photograph");
-        printPhoto(200,300, true);
+        printPhoto(200, 300, true);
 
         System.out.println();
         System.out.println("Height requirements");
@@ -360,7 +360,7 @@ public class Main {
 
         System.out.println();
         System.out.println("Change");
-        System.out.println("Your change is $" + makeChange(298,300));
+        System.out.println("Your change is $" + makeChange(298, 300));
 
         System.out.println();
         System.out.println("Rolling the dice");
@@ -369,16 +369,30 @@ public class Main {
         System.out.println("Roll 1 " + roll1);
         System.out.println("Roll 2 " + roll2);
 
+        System.out.println();
+        System.out.println("CZWARTY MODUŁ");
+        System.out.println("Yahtzee");
+        keepRolling();
+
+        System.out.println();
+        System.out.println("Warnings");
+        raiseAlarm(3);
+        raiseAlarm2(4);
+
+        System.out.println();
+        System.out.println("Pyramid");
+        countBlocks(3);
+
+        System.out.println();
+        System.out.println("Counting up");
+        addNumbers(14, 20);
+
+        System.out.println();
+        System.out.println("Rolling the dice - 6 wins, 3 lose");
+        rollASix();
 
 
     }
-
-
-
-
-
-
-
 
 
     public static void chorus() {
@@ -388,6 +402,7 @@ public class Main {
         System.out.println("Third line of chorus");
         System.out.println("Forth line of chorus");
     }
+
     public static void playMusic() {
         boolean playButton = true;
         if (playButton) {
@@ -396,6 +411,7 @@ public class Main {
             System.out.println("Music is paused.");
         }
     }
+
     public static void greeting(String location) {
         System.out.println("Hello, " + location);
     }
@@ -409,6 +425,7 @@ public class Main {
             System.out.println("It's perfect weather outside!");
         }
     }
+
     public static void printPhoto(int width, int height, boolean inColor) {
         System.out.println("Weidth = " + width + "cm");
         System.out.println("Heigth = " + height + "cm");
@@ -418,6 +435,7 @@ public class Main {
             System.out.println("Print is black and white.");
         }
     }
+
     public static String admission(double height) {
         String passText;
         if (height > 120) {
@@ -427,17 +445,18 @@ public class Main {
         }
         return passText;
     }
-    public static double makeChange(double itemCost, double dollarPriovided) {
-        double makeChange = dollarPriovided - itemCost;  // określam zmienną makeChange typu double jako różnicę dwóch zmiennych double
+
+    public static double makeChange(double itemCost, double dollarProvided) {
+        double makeChange = dollarProvided - itemCost;  // określam zmienną makeChange typu double jako różnicę dwóch zmiennych double
         return makeChange; //zwracam wynik funkcji w formie zmiennej makeChange typu, ale to jeszcze nie wyśiwetla jej wartości
     }
 
-    public static int rollDice (int sides) { //jeżeli damy tutaj pusty nawiast to poniżej zamiast zmiennej sides należy dać liczbę ścianek kostki
+    public static int rollDice(int sides) { //jeżeli damy tutaj pusty nawiast to poniżej zamiast zmiennej sides należy dać liczbę ścianek kostki
         /**
          * This dice function simulates a random dice roll
-         * for a dice with a given numer of sides.
+         * for a dice with a given number of sides.
          *
-         * @param sides the numer od sides of a dice
+         * @param sides the number od sides of a dice
          * @return random roll value (an int)
          */
         double randomNumber = Math.random();
@@ -445,5 +464,111 @@ public class Main {
         randomNumber = randomNumber + 1;
         int randomInt = (int) randomNumber;
         return randomInt;
+    }
+
+    public static void beep() {
+    }
+
+    /**
+     * makes a single beep sound
+     */
+    public static boolean checkAlarm() {
+        return true;
+    }
+
+    /**
+     * @return true if alarm is on, false if off
+     */
+    public static void alarm() {
+    }
+
+    {
+        /**
+         * keep beeping until snoozed
+         */
+        boolean on = checkAlarm();
+        while (on) {
+            beep();
+            on = checkAlarm();
+        }
+    }
+
+    public static int keepRolling() {
+        int dice1 = rollDice(6);
+        int dice2 = rollDice(6);
+        int dice3 = rollDice(6);
+        int dice4 = rollDice(6);
+        int dice5 = rollDice(6);
+        int count = 1;
+        while (!(dice1 == dice2 && dice2 == dice3 && dice3 == dice4 && dice4 == dice5)) {
+            dice1 = rollDice(6);
+            dice2 = rollDice(6);
+            dice3 = rollDice(6);
+            dice4 = rollDice(6);
+            dice5 = rollDice(6);
+            count = count + 1;
+        }
+        System.out.println("It took " + count + " tries to have the dices matched.");
+        return count;
+    }
+
+    public static void raiseAlarm(int numOfWarnings) {
+        int i = 1;
+        while (i <= numOfWarnings) {
+            System.out.println("Warning");
+            // i = i + 1; longer version of what's written below
+            i++;
+        }
+    }
+
+    public static void raiseAlarm2(int numOfWarnings) {
+        for (int i = 1; i <= numOfWarnings; i++) {
+            System.out.println("Warning2 #" + i);
+        }
+    }
+
+    public static int countBlocks(int levels) {
+        int total = 0;
+        for (int i = 1; i <= levels; i++) {
+            total = total + i * i;
+        }
+        System.out.println(total + " blocks are needed");
+        return total;
+    }
+
+    /**
+     * Adding numbers from the first to the last one
+     *
+     * @param firstNumber
+     * @param lastNumber
+     * @return the total sum of these numbers
+     */
+    public static int addNumbers(int firstNumber, int lastNumber) {
+        int sum = 0;
+        for (int i = firstNumber; i <= lastNumber; i++) {
+            sum = sum + i;
+        }
+        System.out.println(sum);
+        return sum;
+    }
+
+    /**
+     * Rolls a dice till you get a 6 then you win
+     * but if you get a 3 you lose
+     */
+    public static boolean rollASix() {
+        int dice = rollDice(6);
+        while (dice != 6) {
+            dice = rollDice(6);
+            if (dice == 3)
+                break;
+        }
+        if (dice == 6) {
+            System.out.println("You win");
+            return true;
+        } else {
+            System.out.println("You loose");
+            return false;
+        }
     }
 }
