@@ -391,6 +391,24 @@ public class Main {
         System.out.println("Rolling the dice - 6 wins, 3 lose");
         rollASix();
 
+        System.out.println();
+        System.out.println("ARRAY - Press Conference");
+        String[] newsOutlet = {"abc", "bbc", "CNN", "CBS", "AP", "NBC", "FOX", "npr", "sky", "Aljazeera"};
+        double lucky = Math.random();
+        lucky *= 10;
+        int luckyIndex = (int) lucky;
+        System.out.println(newsOutlet[luckyIndex]);
+
+        System.out.println();
+        System.out.println("ARRAY - Average temperature");
+        double[] temperatures = {75, 73, 72, 80};
+        System.out.println(calculateAverage(temperatures));
+
+        System.out.println();
+        System.out.println("ARRAY - The longest name");
+        String[] names = {"Ana", "David", "Lucy", "Caroline"};
+        findLongestName(names);
+
 
     }
 
@@ -570,5 +588,58 @@ public class Main {
             System.out.println("You loose");
             return false;
         }
+    }
+
+//    public static int martingale() {
+//        int money = 1000;
+//        int target = 1200;
+//        int bet = 10;
+//        while (money > bet) {
+//            boolean win = play();
+//            if (win && money < target) {
+//                money += bet;
+//                bet = 10;
+//            } else {
+//                money -= bet;
+//                bet *= 2;
+//            }
+//            if (money >= target)
+//                break;
+//        }
+//        return money;
+//    }
+
+    public static double calculateAverage(double[] temperatures) {
+        int size = temperatures.length; //liczba zmiennych w tabeli
+        double total = 0;
+        for (int i = 0; i < size; i++) {
+            total += temperatures[i];
+        }
+        double average = total / size;
+        return average;
+    }
+
+    public static String findLongestName(String[] names) {
+        int size = names.length;
+        String longestName = names[0];
+        for (int i = 1; i < size; i++) {
+            if (names[i].length() > longestName.length()) {
+                longestName = names[i];
+            }
+        }
+        System.out.println(longestName);
+        return longestName;
+    }
+
+    public static double allSubjectsAverage(int[][] grades, int student) {
+        int subjects = grades.length;
+        int total = 0;
+        for (int i = 0; i < subjects; i++) {
+            for (int j = 0; j < student; j++) {
+                total += grades[i][student];
+            }
+        }
+        double average = total / (double) subjects;
+        return average;
     }
 }
